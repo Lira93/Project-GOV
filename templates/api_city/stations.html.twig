@@ -9,27 +9,19 @@
 </style>
     {% include 'navbar.html.twig' %}
 <div class="example-wrapper">
-    <h1>Zadanie rekrutacyjne PG</h1>
+
+    <h1>Lista stacji {{ data[id].0.name }}</h1>
 
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th>Miasto</th>
-            <th>Akcja</th>
-        </tr>
+        <th>Stacje</th>
         </thead>
-        <tbody>
+    {% for station in data[id] %}
+    <tr>
+        <td>{{ station.data.stationName }}</td>
+    </tr>
 
-        {% for id,city in cities %}
-            <tr>
-                {% if city.0.name is not null %}
-               <td>{{ city.0.name }}</td>
-               <td><a href="city/{{ id }}">Zobacz</td>
-
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
+    {% endfor %}
     </table>
 </div>
 {% endblock %}
