@@ -36,7 +36,7 @@ class ApiCityController extends AbstractController
 
         return $this->render('api_city/show.html.twig', [
             'controller_name' => 'ApiCityController',
-            'cities' => $response->toArray(),
+            'stations' => $response->toArray(),
         ]);
 
     }
