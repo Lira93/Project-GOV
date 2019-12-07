@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ApiCityController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    <h1>Station name: {{ var1.city.stationName }}</h1>
+
+
+
+    Lista stacji:
+    <ul>
+        {% for station in staties %}
+
+            <li>id: {{ station.id }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

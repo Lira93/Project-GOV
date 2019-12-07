@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ApiCityController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Zadanie rekrutacyjne PG</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id miasta</th>
+            <th>Stacja</th>
+            <th>Miasto</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for city in cities %}
+            <tr>
+                <td>id: {{ city.id }}</td>
+                <td>Station name: {{ city.stationName }}</td>
+                {% if(city.city) %}
+                <td>City: {{ city.city.name ? city.city.name : 'Brak danych' }}</td>
+                {% endif %}
+                <td><a href="{{ path('show', {id:city.id}) }}">Zobacz</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
