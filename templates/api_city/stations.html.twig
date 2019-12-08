@@ -7,10 +7,10 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-    {% include 'navbar.html.twig' %}
-<div class="example-wrapper">
 
-    <h1>Lista stacji {{ data[id].0.name }}</h1>
+<div class="example-wrapper">
+    <div class="container"
+    <h1>Lista stacji pomiarowych: {{ data[id].0.name }}</h1>
 
     <table class="table table-striped">
         <thead>
@@ -19,9 +19,13 @@
     {% for station in data[id] %}
     <tr>
         <td>{{ station.data.stationName }}</td>
+        <td><button class="btn btn-info"><a class="text-white" href="./show/{{ station.data.id }}">Zobacz</a></button></td>
     </tr>
 
     {% endfor %}
     </table>
+
+    <button class="btn btn-info text-light"><a class="text-white" href="/api/city/">Wróć</a></button>
 </div>
+    </div>
 {% endblock %}

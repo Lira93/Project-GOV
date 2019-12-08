@@ -25,17 +25,18 @@ class ApiCityController extends AbstractController
     /**
      * @Route("/api/city/show/{id}", name="show")
      */
-    public function show($id, HttpClientInterface $httpClient)
+    public function show($id, HttpClientInterface $httpClient ,apiServices $apiServices)
     {
 
         $response = $httpClient->request('GET','http://api.gios.gov.pl/pjp-api/rest/station/sensors/'.$id);
 
         $var = $response->toArray();
-
+        $data = $apiServices->getData();
 
         return $this->render('api_city/show.html.twig', [
             'controller_name' => 'ApiCityController',
             'stations' => $response->toArray(),
+            'measurements' => $data,
         ]);
 
     }
